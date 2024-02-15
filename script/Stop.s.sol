@@ -4,23 +4,14 @@ pragma solidity ^0.8.13;
 import {Script, console2} from "forge-std/Script.sol";
 import {AttackFallback} from "../src/AttackFallback.sol";
 
-contract FallbackScript is Script {
+contract StopScript is Script {
     
     function setUp() public {}
 
     function run() public {
         vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
 
-        // AttackFallback attack = new AttackFallback();
-        // vm.deal(address(attack),0.001 ether);
-
-        // attack.contribute();
-        // attack.sendEth();
-        // attack.withdraw();
-
-        // attack.get(payable(0xc8Bd59d60961bEdb12c95079250d3075b9328a2d));
-
-        IExpose attack = IExpose(0xd7dbCDF0Efc84fD1362C626d75Ea7de74703AF23);
+        IExpose attack = IExpose(0xAd6E408e50b3df65E6036f868902EAD97ae17b43);
 
         // vm.deal(address(attack),0.001 ether);
         attack.contribute{value: 0.0001 ether}();
