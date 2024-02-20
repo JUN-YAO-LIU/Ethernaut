@@ -35,7 +35,6 @@ contract FallbackScript is Script {
     }
 }
 
-
 interface IExpose {
     function contribute() external payable;
 
